@@ -55,7 +55,7 @@ namespace ShoppingCart.Controllers
         public async Task<IActionResult> ApproveProduct(long id)
         {
             Product product = _context.Products.Find(id);
-           // product.VendorId = _userManager.GetUserId(User);
+            //product.VendorId = _userManager.GetUserId(User);
 
             product.IsApproved = true;
             _context.Update(product);

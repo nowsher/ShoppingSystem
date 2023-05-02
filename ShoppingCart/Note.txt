@@ -9,4 +9,4 @@ user=vendor2@example.com
 pass=vendor123
 
 alinowsher@yahoo.com
-123456
+123456 

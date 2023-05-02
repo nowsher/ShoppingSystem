@@ -14,11 +14,8 @@ namespace ShoppingCart.Controllers
     public IActionResult Index()
     {
             // List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();
-
-            // CartViewModel cartVM = new(cart);
-        
-            // ReportViewModel reportVm = new(cartVM);
-             
+            // CartViewModel cartVM = new(cart);       
+            // ReportViewModel reportVm = new(cartVM);             
             //ViewData["data"] = reportVm;
 
             return View();

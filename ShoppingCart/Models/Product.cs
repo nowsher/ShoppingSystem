@@ -35,10 +35,6 @@ namespace ShoppingCart.Models
         [FileExtension]
         public IFormFile? ImageUpload { get; set; }
 
-        // Vendor Id Added
-
-        // public string  Vendor { get; set; }
-
         public string VendorId { get; set; }
 
         [ForeignKey("VendorId")]

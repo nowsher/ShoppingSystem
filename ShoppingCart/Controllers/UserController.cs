@@ -12,6 +12,7 @@ namespace ShoppingCart.Controllers
         {
             _signInManager = signInManager;
         }
+
         //public IActionResult Index()
         //{
         //    return View();

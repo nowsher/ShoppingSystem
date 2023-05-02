@@ -63,19 +63,6 @@ namespace ShoppingCart.Controllers
             return RedirectToAction("Index");
         }
 
-        //public async Task<IActionResult> Edit(int id)
-        //{
-        //    var category = await _categoryRepository.GetByIdAsync(id);
-
-        //    if (category == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(category);
-        //}
-
-
         public async Task<IActionResult> DeleteAsync(int Id)
         {
             var category = await _categoryService.GetByIdAsync(Id);
