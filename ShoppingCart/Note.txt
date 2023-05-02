@@ -1,0 +1,12 @@
+Default users:
+user=admin@example.com
+pass=admin123
+
+user=vendor1@example.com
+pass=vendor123
+
+user=vendor2@example.com
+pass=vendor123
+
+alinowsher@yahoo.com
+123456

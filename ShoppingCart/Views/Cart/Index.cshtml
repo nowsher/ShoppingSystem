@@ -1,0 +1,90 @@
+﻿@model CartViewModel
+@{
+    ViewData["Title"] = "Cart Overview";
+}
+
+<main class="mt-5">
+        <div class="container">
+        <div class="row">
+            <div class="card mb-3" style="box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+            <div class="card-body">
+                 <div class="pb-3 mb-3">
+                    <h3 class="card-title">Shopping Cart</h3>
+                    <a asp-action="Clear" class="text-link">Delete all items</a>
+                </div>
+                <div class="content">
+                     <p class="d-flex justify-content-end">Price</p>
+                     <hr>
+                    <article class="mb-3">
+                    <div class="items">
+                        <ol style="list-style: none;">
+                           @foreach (var item in Model?.Cart?.CartItems ?? Enumerable.Empty<CartItem>())
+                            {
+                                <li class="pb-3">
+                                    <div class="d-flex justify-content-between">
+                                     <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="/media/products/@item.Image" width="200"> 
+                                        </div>
+                                         <div class="col-md-6">
+                                            <p class="fw-bold"> @item.ProductName </p>
+                                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur minus quasi, aperiam praesentium optio distinctio quibusdam tempora a est esse facilis tempore omnis ea! Vitae eaque facilis culpa cupiditate qui.</p>
+                                             <div class="row">
+                                                <div class="col-sm-4 d-flex justify-content-between">
+                                                    <span>Qty: </span>
+                                                @* <select asp-for="SelectedOption" asp-items="@Model.Options" asp-route-id="@item.ProductId"  asp-action="addQuantity"></select> *@
+                                                <a class="btn btn-sm" asp-action="Decrease" asp-route-id="@item.Product.Id"><i class="bi bi-arrow-down-short"></i></a>
+                                                    <span>@item.Quantity</span>
+                                                <a class="btn btn-sm" asp-action="AddToCart" asp-route-id="@item.Product.Id"><i class="bi bi-arrow-up-short"></i></a>
+                                                </div>
+                                                <div class="col-sm-1 pipe">
+                                                    |
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <a asp-action="Remove" asp-route-id="@item.Product.Id" class="text-link">Delete</a>
+                                                </div>
+                                             
+                                             </div>
+                                        </div>
+                                     </div>
+                                    <p class="fw-bold">
+                                        <span> $@item.Price </span>
+                                    </p>
+                                    </div>
+                                    <hr>
+                                </li>
+                            }
+                        
+                        </ol>
+                    </div>
+                    </article>
+                </div>
+
+                <footer>
+                    <div class="row">
+                        <div class="col-md-12">
+                           @if (Model.Cart?.CartItems != null)
+                            {
+                                <p>Subtotal (@Model.Cart.CartItems.Count() items): <span class="fw-bold">@Model.Cart.Total.ToString("C2")</span></p>
+                            }
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-end">
+                            <a href="/order" class="btn btn-warning btn-sm px-4" style="border-radius: 7px;">Proceed to checkout</a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+       </div>
+    </div>
+</main>
+
+<style>
+    .text-link{
+        color: #007185!important;
+        text-decoration: none;
+    }
+    .pipe{
+        color:#ddd;
+    }
+</style>
